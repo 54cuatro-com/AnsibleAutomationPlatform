@@ -1,2 +1,0 @@
-# AnsibleAutomationPlatform
-Ansible Automation Platform
