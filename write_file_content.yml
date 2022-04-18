@@ -18,14 +18,14 @@
         path: "{{ filepath }}"
       register: st
 
-    - name: "Check if file {{ filepath }} exists"
-      fail:
-        msg: "{{ filepath }} doesnt exist"
-      when: not st.stat.exists | bool
-
     - name: "Insert content on {{ filepath }}"
       command: "cat /var/log/messages  >>  {{ filepath }}"
       register: ins
+
+    - name: "Check if file {{ filepath }} exists"
+      fail:
+        msg: "{{ filepath }} doesnt exist"
+      when: not st.stat.exists | bool      
 
     - name: "Get {{ filepath }} content"
       command: "cat {{ filepath }}"
