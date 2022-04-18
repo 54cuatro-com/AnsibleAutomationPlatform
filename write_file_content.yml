@@ -2,6 +2,8 @@
 
 - name: 'Test playbook to write content into a file'
   hosts: all
+  become: yes
+  become_user: root  
   gather_facts: false
 
   tasks:
@@ -22,9 +24,8 @@
       when: not st.stat.exists | bool
 
     - name: "Insert content on {{ filepath }}"
-      command: cat /var/log/messages  >> {{ filepath }}
+      command: "cat /var/log/messages  >>  {{ filepath }}"
       register: ins
-      
 
     - name: "Get {{ filepath }} content"
       command: "cat {{ filepath }}"
