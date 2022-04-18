@@ -22,7 +22,7 @@
       when: not st.stat.exists | bool
 
     - name: "Insert content on {{ filepath }}"
-      cmd: "cat /var/log/messages  >> {{ filepath }}"
+      command: cat /var/log/messages  >> {{ filepath }}
       register: ins
       
 
