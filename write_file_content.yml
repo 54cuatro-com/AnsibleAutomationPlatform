@@ -19,7 +19,7 @@
       register: st
 
     - name: "Insert content on {{ filepath }}"
-      command: "cat /var/log/messages  >>  {{ filepath }}"
+      command: "cat /var/log/messages > {{ filepath }}"
       register: ins
 
     - name: "Check if file {{ filepath }} exists"
