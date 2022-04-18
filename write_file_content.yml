@@ -21,6 +21,11 @@
         msg: "{{ filepath }} doesnt exist"
       when: not st.stat.exists | bool
 
+    - name: "Insert content on {{ filepath }}"
+      command: "cat /var/log/messages >> {{ filepath }}"
+      register: ins
+      
+
     - name: "Get {{ filepath }} content"
       command: "cat {{ filepath }}"
       register: cnt
@@ -29,3 +34,5 @@
       fail:
         msg: "{{ filepath }} doesnt have the correct content"
       when: '"Test_Content_Line" not in cnt.stdout'
+
+      
