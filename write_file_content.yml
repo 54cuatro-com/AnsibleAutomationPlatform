@@ -1,7 +1,7 @@
 - hosts: all
   tasks:
-    - name: line insert
+    - name: Inserting a line after a pattern in Ansible example 
       lineinfile:
-        path: /tmp/Input.txt
-        line: 'Added Line 1'
-        insertbefore: BOF
+        path: ~/.bashrc
+        line: alias ll='ls -ltrha'
+        insertafter: alias.*
