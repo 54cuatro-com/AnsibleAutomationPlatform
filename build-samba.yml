@@ -28,8 +28,8 @@
 
     samba_map_to_guest: Never
     samba_users:
-      - name: vagrant
-        password: vagrant
+#      - name: vagrant
+#        password: vagrant
       - name: usr1
         password: usr1
       - name: usr2
