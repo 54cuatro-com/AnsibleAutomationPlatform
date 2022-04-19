@@ -1,5 +1,5 @@
 ---
-- hosts: SMB
+- hosts: all
   become: true
   pre_tasks:
     - name: Ensure package database is up-to-date
